@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30 Aniversario CECyTEJ | Plantel 08</title>
+
+<style>
+:root {
+    --verde: #033926;
+    --verde2: #0c8055;
+    --verde3: #e6f1e9;
+    --dorado: #c49a42;
+    --crema: #f7f5ef;
+    --blanco: #ffffff;
+    --texto: #26352c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--crema);
+    color: var(--texto);
+    line-height: 1.7;
+}
+
+header {
+    background: var(--verde);
+    color: white;
+    padding: 17px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 15px #0002;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: bold;
+    color: white;
+}
+
+.logo span {
+    color: #e6c36f;
+}
+
+nav {
+    display: flex;
+    gap: 17px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #e6c36f;
+}
+
+.portada {
+    min-height: 590px;
+    padding: 90px 8%;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(circle at 85% 20%, #c49a4255 0 100px, transparent 102px),
+        radial-gradient(circle at 10% 90%, #ffffff18 0 150px, transparent 152px),
+        linear-gradient(125deg, #022b1d, #08764e);
+    color: white;
+}
+
+.portada-contenido {
+    max-width: 850px;
+    animation: entradaPortada 1.2s ease both;
+}
+
+.etiqueta {
+    display: inline-block;
+    background: var(--dorado);
+    color: var(--verde);
+    padding: 7px 18px;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-bottom: 22px;
+}
+
+.portada h1 {
+    font-size: clamp(40px, 7vw, 75px);
+    line-height: 1.08;
+    margin-bottom: 20px;
+}
+
+.portada h1 span {
+    color: #e6c36f;
+}
+
+.portada p {
+    font-size: 19px;
+    max-width: 650px;
+    margin-bottom: 30px;
+}
+
+.boton {
+    display: inline-block;
+    padding: 13px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px;
+    transition: .3s;
+}
+
+.boton-dorado {
+    background: var(--dorado);
+    color: var(--verde);
+}
+
+.boton-blanco {
+    background: white;
+    color: var(--verde);
+}
+
+.boton:hover {
+    transform: translateY(-4px);
+}
+
+.datos-rapidos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px;
+    padding: 35px 7%;
+    background: white;
+}
+
+.dato {
+    text-align: center;
+    padding: 15px;
+}
+
+.dato h2 {
+    color: var(--verde2);
+    font-size: 35px;
+}
+
+.dato p {
+    color: #59665e;
+}
+
+section {
+    padding: 75px 8%;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.titulo span {
+    color: var(--dorado);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.titulo h2 {
+    color: var(--verde);
+    font-size: clamp(28px, 4vw, 42px);
+    margin: 8px 0;
+}
+
+.titulo p {
+    max-width: 700px;
+    margin: auto;
+    color: #66736a;
+}
+
+.nosotros {
+    background: white;
+}
+
+.dos-columnas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: center;
+    gap: 35px;
+}
+
+.texto-grande {
+    font-size: 18px;
+}
+
+.foto-principal {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px #0002;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+.tarjeta {
+    background: white;
+    padding: 27px;
+    border-radius: 17px;
+    box-shadow: 0 7px 22px #0000000c;
+    border-bottom: 4px solid var(--dorado);
+    transition: .3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 25px #0002;
+}
+
+.tarjeta .icono {
+    font-size: 35px;
+}
+
+.tarjeta h3 {
+    color: var(--verde);
+    margin: 10px 0;
+}
+
+.historia {
+    background: var(--verde3);
+}
+
+.linea {
+    max-width: 850px;
+    margin: auto;
+    border-left: 4px solid var(--dorado);
+    padding-left: 30px;
+}
+
+.evento {
+    background: white;
+    padding: 22px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 5px 15px #0000000c;
+}
+
+.evento::before {
+    content: "";
+    position: absolute;
+    left: -42px;
+    top: 28px;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: var(--dorado);
+    border: 4px solid var(--verde3);
+}
+
+.evento h3 {
+    color: var(--verde2);
+}
+
+.galeria {
+    background: white;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+}
+
+.galeria-grid img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 5px 15px #0002;
+    transition: .3s;
+}
+
+.galeria-grid img:hover {
+    transform: scale(1.03);
+}
+
+.pie-foto {
+    text-align: center;
+    color: var(--verde);
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.voces {
+    background: var(--verde);
+    color: white;
+}
+
+.voces .titulo h2,
+.voces .titulo p {
+    color: white;
+}
+
+.testimonio {
+    background: white;
+    color: var(--texto);
+    padding: 28px;
+    border-radius: 15px;
+    border-top: 5px solid var(--dorado);
+}
+
+.testimonio blockquote {
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.testimonio h3 {
+    color: var(--verde);
+}
+
+.videos {
+    background: var(--crema);
+}
+
+.video-card {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px #0001;
+}
+
+video {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.video-card h3 {
+    color: var(--verde);
+    margin-top: 10px;
+}
+
+.orgullo {
+    background: white;
+}
+
+.carreras {
+    background: var(--verde3);
+}
+
+.carrera {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 7px 20px #0001;
+}
+
+.carrera h3 {
+    color: var(--verde);
+    font-size: 23px;
+}
+
+.carrera .icono {
+    font-size: 48px;
+}
+
+.futuro {
+    background: linear-gradient(120deg, #033926, #0c8055);
+    color: white;
+    text-align: center;
+}
+
+.futuro h2 {
+    font-size: 38px;
+    color: #e6c36f;
+    margin-bottom: 20px;
+}
+
+.futuro p {
+    max-width: 800px;
+    margin: auto;
+    font-size: 18px;
+}
+
+.contacto {
+    background: white;
+}
+
+.contacto-card {
+    max-width: 800px;
+    margin: auto;
+    padding: 35px;
+    background: var(--verde3);
+    border-radius: 18px;
+}
+
+.contacto-card p {
+    margin: 12px 0;
+}
+
+footer {
+    background: #022719;
+    color: white;
+    padding: 35px 8%;
+    text-align: center;
+}
+
+footer span {
+    color: #e6c36f;
+}
+
+/* ANIMACIONES AGREGADAS */
+
+@keyframes entradaPortada {
+    from {
+        opacity: 0;
+        transform: translateY(45px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animacion-scroll {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity .8s ease, transform .8s ease;
+}
+
+.animacion-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tarjeta,
+.evento,
+.video-card,
+.testimonio,
+.carrera,
+.dato,
+.galeria-grid img,
+.foto-principal {
+    will-change: transform, opacity;
+}
+
+@media(max-width: 700px) {
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .portada {
+        min-height: 500px;
+        padding: 65px 7%;
+    }
+
+    section {
+        padding: 55px 6%;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .animacion-scroll {
+        opacity: 1;
+        transform: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">CECyTEJ <span>30 Aniversario</span></div>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#historia">Historia</a>
+        <a href="#voces">Voces</a>
+        <a href="#galeria">Galería</a>
+        <a href="#carreras">Carreras</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="portada" id="inicio">
+    <div class="portada-contenido">
+        <span class="etiqueta">1996 – 2026 · 30 años de historia</span>
+        <h1>30 Aniversario <span>CECyTEJ JALISCO PLANTEL 08</span></h1>
+        <p>
+            Tres décadas de educación, experiencias, aprendizajes
+            y generaciones que forman parte de nuestra historia.
+            Celebramos el orgullo de pertenecer al CECyTEJ.
+        </p>
+        <a class="boton boton-dorado" href="#historia">Conoce nuestra historia</a>
+        <a class="boton boton-blanco" href="#galeria">Ver recuerdos</a>
+    </div>
+    <img class="foto-principal"
+                 src="{{ url_for('static', filename='img/escuela.jpeg') }}"
+                 alt="escuela"> 
+
+</section>
+
+<div class="datos-rapidos">
+    <div class="dato">
+        <h2>30</h2>
+        <p>Años de historia institucional</p>
+    </div>
+    <div class="dato">
+        <h2>1996</h2>
+        <p>Inicio del proyecto CECyTEJ</p>
+    </div>
+    <div class="dato">
+        <h2>1999</h2>
+        <p>Inicio del Plantel 08</p>
+    </div>
+    <div class="dato">
+        <h2>2</h2>
+        <p>Carreras en nuestro plantel</p>
+    </div>
+</div>
+
+<section class="nosotros" id="nosotros">
+    <div class="titulo">
+        <span>Quiénes somos</span>
+        <h2>Orgullo CECyTEJ</h2>
+        <p>Una comunidad educativa que construye recuerdos y oportunidades.</p>
+    </div>
+
+    <div class="dos-columnas">
+        <div>
+            <p class="texto-grande">
+                El Colegio de Estudios Científicos y Tecnológicos del Estado
+                de Jalisco forma parte de la historia educativa de nuestro
+                estado. Durante 30 años ha sido parte de la formación de
+                estudiantes y de distintas generaciones.
+            </p>
+            <br>
+            <p>
+                En el Plantel 08 Ixtlahuacán del Río celebramos nuestra
+                trayectoria, recordamos nuestros comienzos y reconocemos
+                a todas las personas que han formado parte de esta comunidad.
+            </p>
+        </div>
+        <div>
+            <img class="foto-principal"
+                 src="{{ url_for('static', filename='img/plantel ahora.jpeg') }}"
+                 alt="plantel ahora">
+        </div>
+    </div>
+</section>
+
+<section class="historia" id="historia">
+    <div class="titulo">
+        <span>Nuestros comienzos</span>
+        <h2>Una historia que comenzó en 1996</h2>
+        <p>Recordamos algunos momentos importantes de nuestra trayectoria.</p>
+    </div>
+
+    <div class="linea">
+        <div class="evento">
+            <h3>Mayo de 1996 · El inicio</h3>
+            <p>
+                El proyecto del CECyTEJ comenzó en mayo de 1996,
+                impulsado por el Ing. Manuel Pamplona Rangel.
+            </p>
+        </div>
+
+        <div class="evento">
+            <h3>Los primeros planteles</h3>
+            <p>
+                El proyecto inició con los planteles Tesistán y
+                La Duraznera, con una matrícula inicial de 102 estudiantes.
+            </p>
+        </div>
+
+        <div class="evento">
+            <h3>Primer Director General</h3>
+            <p>
+                El Ing. José Ramón Silva Barajas fue el primer
+                Director General del CECyTEJ.
+            </p>
+        </div>
+
+        <div class="evento">
+            <h3>1999 · Plantel 08</h3>
+            <p>
+                El Plantel 08 Ixtlahuacán del Río forma parte
+                de esta historia desde 1999.
+            </p>
+        </div>
+
+        <div class="evento">
+            <h3>2026 · 30 aniversario</h3>
+            <p>
+                Celebramos tres décadas de historia institucional
+                y recordamos a las generaciones que han formado
+                parte de nuestra comunidad.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="antes-ahora">
+    <div class="titulo">
+        <span>El paso del tiempo</span>
+        <h2>Antes y ahora</h2>
+        <p>Imágenes que nos permiten recordar cómo ha cambiado nuestro plantel.</p>
+    </div>
+
+    <div class="galeria-grid">
+        <div>
+            <img src="{{ url_for('static', filename='img/plantel antes1.jpeg') }}" alt="plantel antes">
+            <p class="pie-foto">Nuestro plantel antes</p>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='img/plantel antes2.jpeg') }}" alt="plantel antes">
+            <p class="pie-foto">Recuerdos de nuestros comienzos</p>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='img/coperativa antes.jpeg') }}" alt="Coperativa antes">
+            <p class="pie-foto">Antes y ahora</p>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='img/plantel ahora.jpeg') }}" alt="plantel ahora">
+            <p class="pie-foto">Nuestro plantel actualmente</p>
+        </div>
+    </div>
+</section>
+
+<section class="voces" id="voces">
+    <div class="titulo">
+        <span>Historias y experiencias</span>
+        <h2>Voces que dejan huella</h2>
+        <p>Las experiencias de quienes han formado parte de nuestra comunidad.</p>
+    </div>
+
+    <div class="tarjetas">
+        <article class="testimonio">
+            <blockquote>
+                “Disfruta todo el momento que vives aquí,
+                porque pasan rápido los años”.
+            </blockquote>
+            <h3>Sarita</h3>
+            <p>Generación 2006–2009</p>
+        </article>
+
+        <article class="testimonio">
+            <blockquote>
+                “Estudiar CECyTEJ siempre requiere tu esfuerzo”.
+            </blockquote>
+            <h3>Armando</h3>
+            <p>Generación 2000–2003</p>
+        </article>
+
+        <article class="testimonio">
+            <h3>Martha</h3>
+            <p>Generación 1999–2002</p>
+            <p>Una generación que también forma parte de nuestra historia.</p>
+        </article>
+    </div>
+</section>
+
+<section class="galeria" id="galeria">
+    <div class="titulo">
+        <span>Momentos especiales</span>
+        <h2>Galería de recuerdos</h2>
+        <p>Fotografías de nuestro plantel, espacios y actividades.</p>
+    </div>
+
+    <div class="galeria-grid">
+        <div>
+            <img src="{{ url_for('static', filename='img/antes1.jpeg') }}" alt="antes 1">
+            <p class="pie-foto">Nuestros recuerdos</p>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='img/antes2.jpeg') }}" alt="antes 2">
+            <p class="pie-foto">Nuestra historia</p>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='img/antes3.jpeg') }}" alt="antes 3">
+            <p class="pie-foto">Momentos especiales</p>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='img/antes4.jpeg') }}" alt="antes 4">
+            <p class="pie-foto">Generaciones</p>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='img/antes5.jpeg') }}" alt="antes 5">
+            <p class="pie-foto">Nuestra comunidad</p>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='img/programacion antes.jpeg') }}" alt="programacion antes">
+            <p class="pie-foto">Área de Programación</p>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='img/programacion ahora.jpeg') }}" alt="programación ahora">
+            <p class="pie-foto">Programación actualmente</p>
+        </div>
+        <div>
+            <img src="{{ url_for('static', filename='img/taller de electromecanica antes.jpeg') }}" alt="taller de electromecánica antes">
+            <p class="pie-foto">Taller de Electromecánica</p>
+        </div>
+    </div>
+</section>
+
+<section class="videos" id="entrevistas">
+    <div class="titulo">
+        <span>Memorias en video</span>
+        <h2>Entrevistas y recuerdos</h2>
+        <p>Escucha las experiencias de quienes han sido parte del CECyTEJ.</p>
+    </div>
+
+    <div class="tarjetas">
+        <div class="video-card">
+            <video controls>
+                <source src="{{ url_for('static', filename='img/entrevista1.mp4') }}" type="video/mp4">
+            </video>
+            <h3>Entrevista 1</h3>
+        </div>
+
+        <div class="video-card">
+            <video controls>
+                <source src="{{ url_for('static', filename='img/entrevista2.mp4') }}" type="video/mp4">
+            </video>
+            <h3>Entrevista 2</h3>
+        </div>
+
+        <div class="video-card">
+            <video controls>
+                <source src="{{ url_for('static', filename='img/entrevista3.mp4') }}" type="video/mp4">
+            </video>
+            <h3>Entrevista 3</h3>
+        </div>
+    </div>
+</section>
+
+<section class="orgullo" id="celebracion">
+    <div class="titulo">
+        <span>Una fecha especial</span>
+        <h2>Celebramos 30 años</h2>
+        <p>
+            Este aniversario es una oportunidad para recordar nuestros
+            comienzos, reconocer a quienes han formado parte del colegio
+            y compartir el orgullo de pertenecer a esta comunidad.
+        </p>
+    </div>
+
+    <div class="tarjetas">
+        <div class="tarjeta">
+            <div class="icono">📚</div>
+            <h3>Aprendizajes</h3>
+            <p>Recordamos los conocimientos y experiencias que han acompañado a nuestras generaciones.</p>
+        </div>
+        <div class="tarjeta">
+            <div class="icono">🤝</div>
+            <h3>Comunidad</h3>
+            <p>Reconocemos a estudiantes, docentes, familias y personas que han formado parte de nuestra historia.</p>
+        </div>
+        <div class="tarjeta">
+            <div class="icono">🏅</div>
+            <h3>Orgullo</h3>
+            <p>Celebramos nuestra identidad y los 30 años de trayectoria del CECyTEJ.</p>
+        </div>
+    </div>
+</section>
+<section class="carreras" id="carreras">
+    <div class="titulo">
+        <span>Oferta educativa</span>
+        <h2>Conoce nuestras carreras</h2>
+        <p>El Plantel CECyTEJ 08 Ixtlahuacán del Río cuenta con estas dos opciones educativas.</p>
+    </div>
+    <div class="tarjetas">
+        <div class="carrera">
+            <div class="icono">💻</div>
+            <h3>Programación</h3>
+            <img class="foto-principal"
+                 src="{{ url_for('static', filename='img/programacion ahora.jpeg') }}"
+                 alt="programacion ahora">
+            <p>
+                Formación relacionada con el desarrollo de soluciones
+                mediante herramientas tecnológicas y programación.
+            </p>
+        </div>
+        <div class="carrera">
+            <div class="icono">⚙️</div>
+            <h3>Electromecánica</h3>
+            <img class="foto-principal"
+                 src="{{ url_for('static', filename='img/taller de electromecanica antes.jpeg') }}"
+                 alt="taller de electromecanica antes">
+            <p>
+                Formación relacionada con sistemas eléctricos,
+                mecánicos y equipos electromecánicos.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="futuro" id="futuro">
+    <h2>Mirando hacia el futuro</h2>
+    <p>
+        Treinta años representan recuerdos, aprendizajes y nuevos comienzos.
+        Seguimos mirando hacia adelante con el propósito de continuar
+        construyendo oportunidades para las próximas generaciones.
+    </p>
+</section>
+
+<img class="foto-principal"
+     src="{{ url_for('static', filename='img/docentes.jpeg') }}"
+     alt="docentes">
+<section class="contacto" id="contacto">
+    <div class="titulo">
+        <span>Encuéntranos</span>
+        <h2>CECyTEJ Plantel 08</h2>
+        <p>Ixtlahuacán del Río, Jalisco.</p>
+    </div>
+
+    <div class="contacto-card">
+        <p><strong>📍 Dirección:</strong> Prolongación Herrera y Cairo 120, Col. La Garita, Ixtlahuacán del Río, Jalisco.</p>
+        <p><strong>☎️ Teléfono:</strong> 373 734 5002</p>
+        <p><strong>🎓 Institución:</strong> CECyTEJ Plantel 08 Ixtlahuacán del Río</p>
+        <p><strong>🌟 Aniversario:</strong> 30 años de historia, educación y recuerdos.</p>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <h3>CECyTEJ <span>30 Aniversario</span></h3>
+    <p>Plantel 08 Ixtlahuacán del Río</p>
+    <p>1996 – 2026 · Celebrando nuestra historia</p>
+</footer>
+
+<!-- SCRIPT DE ANIMACIONES -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const elementos = document.querySelectorAll(
+        ".titulo, .dato, .dos-columnas > div, .evento, " +
+        ".testimonio, .galeria-grid > div, .video-card, " +
+        ".tarjeta, .carrera, .contacto-card, .futuro h2, .futuro p"
+    );
+
+    elementos.forEach(function(elemento) {
+        elemento.classList.add("animacion-scroll");
+    });
+
+    const observador = new IntersectionObserver(function(entradas) {
+
+        entradas.forEach(function(entrada) {
+
+            if (entrada.isIntersecting) {
+                entrada.target.classList.add("visible");
+                observador.unobserve(entrada.target);
+            }
+
+        });
+
+    }, {
+        threshold: 0.15
+    });
+
+    elementos.forEach(function(elemento) {
+        observador.observe(elemento);
+    });
+
+});
+</script>
+
+</body>
+</html>
